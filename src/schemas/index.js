@@ -11,8 +11,8 @@ export const basicSchema = yup.object().shape({
     .min(5)
     .matches(passwordRules, "Please create a stronger password")
     .required("Required"),
-  confirmendPassword: yup
+  confirmPassword: yup
     .string()
-    .oneOf((yup.ref("password"), null), "Password does not match")
+    .oneOf([yup.ref("password"), null], "Passwords must match")
     .required("Required"),
 });
